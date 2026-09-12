@@ -197,16 +197,16 @@ footer .in{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;bo
   <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
   <div class="wrap in">
     <div>
-      <span class="eyebrow" data-anim>🎨 <b>۳ پروژه</b> — همه با پیش‌نمایش زنده</span>
+      <span class="eyebrow" data-anim>🎨 <b>۵ پروژه</b> — همه با پیش‌نمایش زنده</span>
       <h1 data-anim>وب‌سایت‌هایی که<br><span class="u">رنگ دارند، حرکت دارند</span><br><span class="grad">و کار می‌کنند.</span></h1>
-      <p class="lead" data-anim>طراحی رابط، توسعه فرانت‌اند و موشن با GSAP — سه پروژه‌ی منتخب از کارنامه‌ی ما، با یک کلیک زنده امتحان می‌شوند.</p>
+      <p class="lead" data-anim>طراحی رابط، توسعه فرانت‌اند و موشن با GSAP — پنج پروژه‌ی منتخب از کارنامه‌ی ما، با یک کلیک زنده امتحان می‌شوند.</p>
       <div class="hero-btns" data-anim>
         <button class="btn btn-p" onclick="document.getElementById('works').scrollIntoView()">▶ پروژه‌ها را ببین</button>
         <button class="btn btn-g" onclick="openSite('lumiera','لومیرا — استودیو زیبایی')">✨ دمو: لومیرا</button>
       </div>
       <div class="hero-stats">
-        <div class="it" data-anim><div class="emo" style="background:#ffe4e7">🗂</div><div><b data-count="3">0</b><span>پروژه منتخب</span></div></div>
-        <div class="it" data-anim><div class="emo" style="background:#efeaff">📄</div><div><b data-count="16">0</b><span>صفحه طراحی‌شده</span></div></div>
+        <div class="it" data-anim><div class="emo" style="background:#ffe4e7">🗂</div><div><b data-count="5">0</b><span>پروژه منتخب</span></div></div>
+        <div class="it" data-anim><div class="emo" style="background:#efeaff">📄</div><div><b data-count="30">0</b><span>صفحه طراحی‌شده</span></div></div>
         <div class="it" data-anim><div class="emo" style="background:#dcf6f4">🎬</div><div><b data-count="60">0</b><span>fps انیمیشن</span></div></div>
       </div>
     </div>
@@ -233,10 +233,25 @@ footer .in{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;bo
 <section id="works"><div class="wrap">
   <div class="sec-head">
     <span class="tag v" data-anim>Selected Works</span>
-    <h2 data-anim>سه پروژه، سه شخصیت</h2>
+    <h2 data-anim>پنج پروژه، پنج شخصیت</h2>
     <p class="desc" data-anim>روی هر کارت کلیک کنید — پروژه کامل با تمام صفحه‌ها و انیمیشن‌ها در همین پنجره باز می‌شود.</p>
   </div>
   <div class="grid">
+    <div class="card" data-anim onclick="openSite('khordo','خُردو — بافت‌های کهن مشهد')">
+      <div class="shot"><img src="assets/khordo.jpg" alt="پیش‌نمایش خُردو"><div class="shade"></div>
+        <span class="no">۰۴</span><span class="play">▶ پیش‌نمایش زنده</span></div>
+      <div class="body"><h3>خُردو · بافت‌های کهن مشهد</h3>
+        <p>سایت میراث فرهنگی با نقشه محله‌ها، معرفی خانه داروغه، زورخانه و حمام‌های قاجاری — Next.js + SQLite.</p>
+        <div class="tags"><i class="tg-v">Next.js</i><i class="tg-a">React</i><i class="tg-t">Map</i></div></div>
+    </div>
+    <div class="card" data-anim onclick="openSite('gsap-showcase','GSAP Showcase — ۴۵ انیمیشن')">
+      <div class="shot"><img src="assets/showcase.jpg" alt="پیش‌نمایش GSAP Showcase"><div class="shade"></div>
+        <span class="no">۰۵</span><span class="play">▶ پیش‌نمایش زنده</span></div>
+      <div class="body"><h3>GSAP Showcase · ۵۳ مدل انیمیشن</h3>
+        <p>کتابخانه تعاملی انیمیشن‌های GSAP با دموی زنده، جستجو و فیلتر — همه در یک فایل آفلاین.</p>
+        <div class="tags"><i class="tg-c">GSAP</i><i class="tg-v">Draggable</i><i class="tg-t">Flip</i></div></div>
+    </div>
+
     <div class="card" data-anim data-new onclick="openSite('lumiera','لومیرا — استودیو زیبایی')">
       <div class="shot"><img src="assets/lumiera.jpg" alt="پیش‌نمایش لومیرا"><div class="shade"></div>
         <span class="no">۰۱ · جدید ✦</span><span class="play">▶ پیش‌نمایش زنده</span></div>
