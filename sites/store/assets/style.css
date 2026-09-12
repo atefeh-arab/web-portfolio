@@ -1,0 +1,215 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  direction: rtl;
+  background: #f5f5f5;
+}
+
+header {
+  background: #78b6df;
+  color: white;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+nav a:hover {
+  color: rgb(52, 8, 247);
+  font-weight: bold;
+}
+
+.content {
+  margin: 30px;
+}
+
+.porforosh {
+  /* width: 200px; */
+  background: rgba(69, 164, 233, 0.214);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+
+.porforosh img {
+  width: 200px;
+  height: 300px;
+}
+
+.porforosh:hover {
+  transform: translateY(-5px);
+
+}
+
+.wizhe {
+  width: 230px;
+  background: rgb(255, 255, 255);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+
+}
+
+.wizhe:hover {
+  transform: translateY(-5px);
+}
+
+.axtovzih {
+  /* background: rgba(69, 164, 233, 0.214); */
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+  align-items: center;
+}
+
+.axtovzih img {
+  width: 400px;
+  height: 400px;
+}
+
+.tovzih {
+  display: flex;
+  width: 200px;
+  gap: 10px;
+  align-items: center;
+  justify-items: center;
+  justify-content: space-between;
+  padding-right: 300px;
+}
+
+.takhfif {
+  display: flex;
+  width: 200px;
+  gap: 10px;
+}
+
+.wizhe img {
+  width: 200px;
+  height: 300px;
+}
+
+.section {
+  margin-bottom: 20px;
+  border-right: 4px solid rgb(41, 5, 251);
+  padding-right: 10px;
+  margin: 10px 0 20px 10px;
+  display: flex;
+}
+
+.grids {
+  display: grid;
+  border-bottom: #78b6df;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.mahsol {
+  display: flex;
+  width: 200px;
+  gap: 10px;
+}
+
+.card {
+  width: 300px;
+  height: 300px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+}
+
+.price {
+  color: green;
+  margin-top: 10px;
+  font-weight: bold;
+  padding-bottom: 15px;
+}
+
+.discount {
+  color: rgb(0, 66, 245);
+  font-weight: bold;
+}
+
+.slides img {
+  width: 100%;
+}
+
+form {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+form input,
+form button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+form button {
+  background: rgb(0, 140, 255);
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+form button:hover {
+  background: rgb(49, 7, 237);
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #78b6df;
+  color: white;
+  margin-top: 40px;
+}
+
+.sabt {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  justify-content: center;
+  border-radius: 10px;
+  background: #bee5fd;
+}
+.asal{
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+.afzodan{
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+  padding-right: 130px;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>همه محصولات</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="stylesheet"
+href="../../../../../../vendor/fontawesome-6.6/css/all.min.css">
+<a href="index.html" class="back-home">
+    <i class="fa-solid fa-house"></i>
+    بازگشت به صفحه اصلی
+</a>
+
+</head>
+
+<body>
+
+<section class="products-page">
+
+<h1>همه محصولات</h1>
+
+<div class="filter-bar">
+
+<select id="categoryFilter">
+
+<option value="all">همه دسته‌ها</option>
+
+<option value="آرایش">آرایش</option>
+
+<option value="پوست">مراقبت پوست</option>
+
+<option value="مو">مراقبت مو</option>
+
+<option value="عطر">عطر</option>
+
+</select>
+
+<select id="sortProducts">
+
+<option value="default">مرتب سازی</option>
+
+<option value="cheap">ارزان‌ترین</option>
+
+<option value="expensive">گران‌ترین</option>
+
+</select>
+
+</div>
+
+<div id="allProducts" class="products-grid"></div>
+
+</section>
+
+<script src="js/products.js"></script>
+
+</body>
+
+</html>

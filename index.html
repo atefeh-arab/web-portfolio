@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نمای کارها | پورتفولیو پروژه‌های وب</title>
+<link rel="stylesheet" href="fonts/vazirmatn.css">
+<style>
+:root{
+  --bg:#070b14; --bg2:#0c1322; --card:#101a2e; --card2:#0e1728;
+  --line:rgba(148,180,255,.12); --txt:#e9eff9; --muted:#93a3bd;
+  --c1:#22d3ee; --c2:#a855f7; --c3:#f472b6; --c4:#34d399; --c5:#fbbf24;
+  --r:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:Vazirmatn,'Segoe UI',Tahoma,sans-serif;line-height:1.85;overflow-x:hidden}
+::selection{background:rgba(34,211,238,.3)}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+
+/* ===== نوار بالا ===== */
+header{position:fixed;top:0;inset-inline:0;z-index:60;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+header.solid{background:rgba(7,11,20,.86);border-color:var(--line)}
+header .row{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px}
+.logo .dot{width:12px;height:12px;border-radius:4px;background:linear-gradient(135deg,var(--c1),var(--c2));box-shadow:0 0 18px rgba(34,211,238,.6)}
+nav{display:flex;gap:26px;font-size:14px;color:var(--muted)}
+nav a:hover{color:var(--txt)}
+.nav-cta{background:linear-gradient(135deg,var(--c1),var(--c2));color:#041018;font-weight:700;padding:8px 18px;border-radius:99px;font-size:13px}
+@media(max-width:760px){nav{display:none}}
+
+/* ===== هیرو ===== */
+.hero{position:relative;padding:150px 0 90px;text-align:center}
+.hero::before{content:"";position:absolute;inset:0;background:
+ radial-gradient(700px 340px at 75% 0%,rgba(168,85,247,.16),transparent 65%),
+ radial-gradient(700px 340px at 25% 10%,rgba(34,211,238,.14),transparent 65%);pointer-events:none}
+.kicker{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--card2);color:var(--muted);font-size:12.5px;padding:7px 16px;border-radius:99px;margin-bottom:22px}
+.kicker b{color:var(--c1);font-weight:700}
+h1{font-size:clamp(30px,5.4vw,56px);font-weight:900;line-height:1.45;letter-spacing:-.5px}
+h1 .grad{background:linear-gradient(90deg,var(--c1),var(--c2) 55%,var(--c3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{max-width:640px;margin:18px auto 0;color:var(--muted);font-size:16px}
+.hero-btns{margin-top:34px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{padding:13px 30px;border-radius:14px;font-weight:700;font-size:15px;cursor:pointer;border:1px solid transparent;transition:transform .2s,box-shadow .2s}
+.btn-p{background:linear-gradient(135deg,var(--c1),var(--c2));color:#041018;box-shadow:0 8px 30px rgba(120,110,250,.35)}
+.btn-g{border-color:var(--line);background:var(--card2);color:var(--txt)}
+.btn:hover{transform:translateY(-2px)}
+.hero-stats{margin-top:64px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:720px){.hero-stats{grid-template-columns:repeat(2,1fr)}}
+.stat{border:1px solid var(--line);background:linear-gradient(180deg,var(--card),var(--card2));border-radius:var(--r);padding:20px 10px;text-align:center}
+.stat .n{font-size:30px;font-weight:900;background:linear-gradient(90deg,var(--c1),var(--c2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat .l{font-size:12.5px;color:var(--muted)}
+
+/* ===== عنوان بخش ===== */
+section{padding:84px 0;position:relative}
+.sec-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:34px;flex-wrap:wrap}
+.sec-tag{color:var(--c1);font-size:13px;font-weight:700;letter-spacing:.5px}
+h2{font-size:clamp(22px,3.4vw,34px);font-weight:900;margin-top:6px}
+.sec-desc{color:var(--muted);font-size:14.5px;max-width:520px}
+
+/* ===== فیلترها ===== */
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px}
+.chip{border:1px solid var(--line);background:var(--card2);color:var(--muted);padding:8px 18px;border-radius:99px;font-size:13.5px;cursor:pointer;transition:all .25s}
+.chip:hover{color:var(--txt);border-color:rgba(148,180,255,.3)}
+.chip.on{background:linear-gradient(135deg,var(--c1),var(--c2));color:#041018;font-weight:700;border-color:transparent}
+
+/* ===== کارت‌ها ===== */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media(max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.grid{grid-template-columns:1fr}}
+.card{border:1px solid var(--line);background:var(--card);border-radius:var(--r);overflow:hidden;cursor:pointer;position:relative;will-change:transform}
+.card .thumb{aspect-ratio:16/10;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.card .thumb .art{position:absolute;inset:0}
+.card .thumb .big{position:relative;font-size:52px;font-weight:900;opacity:.92;text-shadow:0 6px 30px rgba(0,0,0,.5)}
+.card .thumb .open{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(7,11,20,.55);opacity:0;transition:opacity .3s}
+.card:hover .open{opacity:1}
+.card .open span{border:1px solid rgba(255,255,255,.35);padding:9px 22px;border-radius:99px;font-size:13.5px;font-weight:700}
+.card .body{padding:16px 18px 18px}
+.card h3{font-size:16.5px;font-weight:800}
+.card p{font-size:13px;color:var(--muted);margin-top:5px;min-height:44px}
+.card .tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
+.card .tags i{font-style:normal;font-size:11px;color:var(--muted);border:1px solid var(--line);border-radius:7px;padding:2px 9px}
+.badge{position:absolute;top:12px;inset-inline-start:12px;z-index:2;font-size:11px;font-weight:800;padding:4px 12px;border-radius:99px;background:rgba(7,11,20,.6);border:1px solid rgba(255,255,255,.18)}
+.badge.gold{background:linear-gradient(135deg,var(--c5),#f59e0b);color:#241a00;border:none}
+.card .num{position:absolute;top:10px;inset-inline-end:14px;font-size:13px;font-weight:900;color:rgba(255,255,255,.4);z-index:2}
+
+/* ===== تایم‌لاین فرآیند ===== */
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:step}
+@media(max-width:860px){.flow{grid-template-columns:repeat(2,1fr)}}
+.step{border:1px solid var(--line);border-radius:var(--r);padding:24px 18px;background:linear-gradient(180deg,var(--card),var(--card2));position:relative}
+.step::before{counter-increment:step;content:counter(step,cjk-ideographic);position:absolute;top:-16px;inset-inline-start:16px;width:34px;height:34px;border-radius:11px;display:grid;place-items:center;font-weight:900;color:#041018;background:linear-gradient(135deg,var(--c1),var(--c2))}
+.step h4{margin-top:8px;font-size:15.5px;font-weight:800}
+.step p{font-size:13px;color:var(--muted)}
+
+/* ===== پشته فناوری ===== */
+.tech{display:flex;flex-wrap:wrap;gap:12px}
+.tech span{border:1px solid var(--line);background:var(--card2);border-radius:12px;padding:10px 20px;font-size:14px;color:var(--muted);transition:all .25s}
+.tech span:hover{color:var(--txt);border-color:rgba(34,211,238,.5);transform:translateY(-2px)}
+
+/* ===== CTA / فوتر ===== */
+.cta{border:1px solid var(--line);border-radius:26px;padding:56px 26px;text-align:center;background:
+ radial-gradient(500px 220px at 50% 0%,rgba(168,85,247,.18),transparent 70%),var(--card)}
+footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:13px;text-align:center}
+
+/* ===== مودال پیش‌نمایش ===== */
+.modal{position:fixed;inset:0;z-index:100;display:none}
+.modal.on{display:block}
+.modal .veil{position:absolute;inset:0;background:rgba(4,7,13,.7)}
+.modal .frame{position:absolute;inset:4% 3%;background:var(--bg2);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 30px 90px rgba(0,0,0,.6)}
+.modal .bar{display:flex;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid var(--line);background:var(--card2);flex-shrink:0}
+.modal .bar .ttl{font-weight:800;font-size:14px}
+.modal .bar .spacer{flex:1}
+.modal .bar a,.modal .bar button{font-family:inherit;font-size:12.5px;padding:6px 14px;border-radius:9px;border:1px solid var(--line);background:transparent;color:var(--txt);cursor:pointer}
+.modal .bar a:hover,.modal .bar button:hover{border-color:var(--c1)}
+.modal iframe{flex:1;width:100%;border:0;background:#fff}
+.dots{display:flex;gap:6px}.dots i{width:11px;height:11px;border-radius:50%;display:block}
+.reveal{opacity:1}
+</style>
+</head>
+<body>
+
+<header id="hdr"><div class="wrap row">
+  <div class="logo"><span class="dot"></span> نمای کارها</div>
+  <nav>
+    <a href="#featured">برگزیده‌ها</a>
+    <a href="#all">همه پروژه‌ها</a>
+    <a href="#flow">فرآیند کار</a>
+    <a href="#tech">فناوری‌ها</a>
+  </nav>
+  <a class="nav-cta" href="#all">مشاهده کارها</a>
+</div></header>
+
+<!-- هیرو -->
+<div class="hero">
+  <div class="wrap">
+    <div class="kicker reveal-el">🎨 مجموعه‌ای از <b>وب‌سایت‌ها و اپلیکیشن‌های</b> طراحی‌ و توسعه‌داده‌شده</div>
+    <h1 class="reveal-el">کارهایی که ساخته‌ایم،<br><span class="grad">یک‌جا، حرفه‌ای و قابل‌دسترس</span></h1>
+    <p class="lead reveal-el">از فروشگاه و رزرو آنلاین تا بنرهای متحرک با GSAP — همه پروژه‌ها را همین‌جا ببینید، با یک کلیک پیش‌نمایش زنده باز می‌شود.</p>
+    <div class="hero-btns reveal-el">
+      <button class="btn btn-p" onclick="document.getElementById('all').scrollIntoView()">▶ شروع مرور پروژه‌ها</button>
+      <button class="btn btn-g" onclick="openSite('velnix','نوبت‌دهی Velnix')">دموی زنده Velnix</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat reveal-el"><div class="n" data-count="9">0</div><div class="l">پروژه فعال</div></div>
+      <div class="stat reveal-el"><div class="n" data-count="44">0</div><div class="l">صفحه طراحی‌شده</div></div>
+      <div class="stat reveal-el"><div class="n" data-count="100">0</div><div class="l">٪ آفلاین و قابل‌ارائه</div></div>
+      <div class="stat reveal-el"><div class="n" data-count="6">0</div><div class="l">فناوری درگیر</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- برگزیده‌ها -->
+<section id="featured"><div class="wrap">
+  <div class="sec-head">
+    <div><div class="sec-tag reveal-el">★ TOP PICKS</div><h2 class="reveal-el">برگزیده‌های پورتفولیو</h2></div>
+    <p class="sec-desc reveal-el">سه پروژه‌ای که کامل‌ترین اجرا را دارند: اپ نوبت‌دهی، فروشگاه لوکس آرایشی و فروشگاه مراقبت پوستی.</p>
+  </div>
+  <div class="grid" id="featGrid"></div>
+</div></section>
+
+<!-- همه -->
+<section id="all"><div class="wrap">
+  <div class="sec-head">
+    <div><div class="sec-tag reveal-el">◆ ALL WORKS</div><h2 class="reveal-el">همه پروژه‌ها</h2></div>
+    <p class="sec-desc reveal-el">با فیلتر دسته‌بندی جابه‌جا شوید؛ روی هر کارت کلیک کنید تا پیش‌نمایش زنده در همان صفحه باز شود.</p>
+  </div>
+  <div class="chips reveal-el" id="chips"></div>
+  <div class="grid" id="allGrid"></div>
+</div></section>
+
+<!-- فرآیند -->
+<section id="flow"><div class="wrap">
+  <div class="sec-head">
+    <div><div class="sec-tag reveal-el">⚙ PROCESS</div><h2 class="reveal-el">فرآیند کار ما</h2></div>
+  </div>
+  <div class="flow">
+    <div class="step reveal-el"><h4>تحلیل و ایده</h4><p>شناخت کسب‌وکار، مخاطب و رقبا؛ تعیین ساختار صفحات و مسیر کاربر.</p></div>
+    <div class="step reveal-el"><h4>طراحی رابط (UI)</h4><p>چیدمان مدرن، رنگ‌بندی برند، تایپوگرافی فارسی و نسخه موبایل.</p></div>
+    <div class="step reveal-el"><h4>توسعه و انیمیشن</h4><p>کدنویسی تمیز HTML/CSS/JS و حرکت‌های نرم با GSAP و ScrollTrigger.</p></div>
+    <div class="step reveal-el"><h4>آزمایش و ارائه</h4><p>بررسی در مرورگر، بهینه‌سازی سرعت و آماده‌سازی برای دمو زنده.</p></div>
+  </div>
+</div></section>
+
+<!-- فناوری -->
+<section id="tech"><div class="wrap">
+  <div class="sec-head">
+    <div><div class="sec-tag reveal-el">🧰 STACK</div><h2 class="reveal-el">فناوری‌های استفاده‌شده</h2></div>
+  </div>
+  <div class="tech">
+    <span class="reveal-el">HTML5</span><span class="reveal-el">CSS3 &amp; Flex/Grid</span><span class="reveal-el">JavaScript (ES6+)</span>
+    <span class="reveal-el">GSAP + ScrollTrigger</span><span class="reveal-el">React + Vite</span><span class="reveal-el">Tailwind CSS</span>
+    <span class="reveal-el">طراحی راست‌چین (RTL)</span><span class="reveal-el">UI/UX مدرن</span><span class="reveal-el">localStorage</span>
+  </div>
+</div></section>
+
+<!-- CTA -->
+<section><div class="wrap">
+  <div class="cta reveal-el">
+    <h2 style="margin-bottom:10px">بگذارید پروژه بعدی را با هم بسازیم</h2>
+    <p style="color:var(--muted);max-width:480px;margin:0 auto 26px">این مجموعه با همین فرآیند ساخته شده — از ایده تا دمو زنده در مرورگر.</p>
+    <a class="btn btn-p" href="tel:09120000000">📞 تماس برای پروژه</a>
+  </div>
+</div></section>
+
+<footer>نمای کارها — ساخته‌شده با ❤ و GSAP | تمامی پروژه‌ها به‌صورت آفلاین قابل اجرا هستند</footer>
+
+<!-- مودال -->
+<div class="modal" id="modal">
+  <div class="veil" onclick="closeModal()"></div>
+  <div class="frame">
+    <div class="bar">
+      <div class="dots"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></div>
+      <div class="ttl" id="mTtl">پیش‌نمایش</div>
+      <div class="spacer"></div>
+      <a id="mTab" href="#" target="_blank" rel="noopener">باز کردن در تب جدید ↗</a>
+      <button onclick="closeModal()">بستن ✕</button>
+    </div>
+    <iframe id="mFrame" src="about:blank"></iframe>
+  </div>
+</div>
+
+<script src="gsap.min.js"></script>
+<script src="ScrollTrigger.min.js"></script>
+<script>
+const PROJECTS = [
+ {id:'velnix', folder:'velnix', cat:'اپلیکیشن', title:'Velnix — نوبت‌دهی آنلاین ناخن‌کارها', desc:'وب‌اپ رزرو وقت با جست‌وجوی ناخن‌کار، تقویم، پرداخت و پنل استودیو — React + Vite.', tags:['React','Vite','SPA'], grad:['#ff4f8b','#7c3aed'], icon:'💅', feat:true, gold:true},
+ {id:'nudea', folder:'nudea', cat:'فروشگاه', title:'Nudéa Beauty — فروشگاه آرایشی', desc:'فروشگاه کامل با محصولات، سبد خرید، تسویه و پنل مدیریت — ۷ صفحه اختصاصی.', tags:['HTML/CSS','JS','Admin'], grad:['#f59e0b','#ec4899'], icon:'🌸', feat:true, gold:true},
+ {id:'biuty', folder:'biuty', cat:'فروشگاه', title:'VELNIX Beauty — فروشگاه لوازم آرایشی', desc:'نسخه دوم فروشگاه با صفحه محصول، علاقه‌مندی‌ها، ورود کاربر و چک‌اوت.', tags:['JS','e-Commerce'], grad:['#8b5cf6','#22d3ee'], icon:'💄', feat:true, gold:true},
+ {id:'rokademi', folder:'rokademi', cat:'سایت معرفی', title:'آکادمی برنامه‌نویسی رکاد', desc:'سایت چندصفحه‌ای آکادمی: دوره‌ها، اساتید، گالری، سبد ثبت‌نام — ۸ صفحه.', tags:['HTML/CSS','JS'], grad:['#10b981','#3b82f6'], icon:'💻'},
+ {id:'store', folder:'store', cat:'فروشگاه', title:'فروشگاه مراقبت پوستی', desc:'دسته‌بندی محصولات، صفحات کرم‌ها و سرم‌ها، سبد و سفارش — ۱۲ صفحه.', tags:['HTML/CSS'], grad:['#34d399','#0ea5e9'], icon:'🧴'},
+ {id:'clinic', folder:'clinic', cat:'سایت معرفی', title:'راهنمای کلینیک‌های زیبایی مشهد', desc:'محتوای سئو‌محور معرفی کلینیک‌ها و پزشکان متخصص زیبایی.', tags:['Content','RTL'], grad:['#0ea5e9','#6366f1'], icon:'🏥'},
+ {id:'cafe', folder:'cafe', cat:'لندینگ', title:'کافه آرام — لندینگ‌پیج', desc:'صفحه فرود ساده و گرم برای کافه با منوی قیمت‌ها.', tags:['HTML/CSS'], grad:['#b45309','#78350f'], icon:'☕'},
+ {id:'gsapdemo', folder:'gsap-demo', cat:'انیمیشن', title:'دموی انیمیشن اسکرول سایت مدرسه', desc:'نمونه قدرت GSAP: سناریوی اسکرول‌محور برای معرفی مدرسه با حرکت‌های مرحله‌ای.', tags:['GSAP','ScrollTrigger'], grad:['#22d3ee','#a855f7'], icon:'🎬'},
+ {id:'school', folder:'school', cat:'سایت معرفی', title:'معرفی رشته‌های هنرستان (کار کلاسی)', desc:'سایت آموزشی معرفی رشته‌ها با تعامل کلیک‌محور.', tags:['HTML/CSS','JS'], grad:['#64748b','#0f172a'], icon:'🎓'},
+];
+const CATS = ['همه','اپلیکیشن','فروشگاه','سایت معرفی','لندینگ','انیمیشن'];
+const BASE = location.protocol==='file:' ? 'sites/' : 'sites/';
+
+function thumbHTML(p){
+  return `<div class="art" style="background:
+    radial-gradient(340px 190px at 20% 10%, ${p.grad[0]}55, transparent 60%),
+    radial-gradient(360px 220px at 85% 90%, ${p.grad[1]}66, transparent 65%),
+    linear-gradient(160deg, var(--bg2), #0a101d)"></div>
+    <div class="big">${p.icon}</div>
+    <div class="open"><span>▶ پیش‌نمایش زنده</span></div>`;
+}
+function cardHTML(p, i){
+  return `<article class="card" data-cat="${p.cat}" data-id="${p.id}" onclick="openSite('${p.folder}','${p.title.replace(/'/g,'&#39;')}')">
+    ${p.gold?'<span class="badge gold">برگزیده ★</span>':''}
+    <span class="num">${String(i+1).padStart(2,'0')}</span>
+    <div class="thumb">${thumbHTML(p)}</div>
+    <div class="body"><h3>${p.title}</h3><p>${p.desc}</p>
+      <div class="tags">${p.tags.map(t=>`<i>${t}</i>`).join('')}</div>
+    </div></article>`;
+}
+document.getElementById('featGrid').innerHTML = PROJECTS.filter(p=>p.feat).map((p,i)=>cardHTML(p,i)).join('');
+document.getElementById('allGrid').innerHTML = PROJECTS.map((p,i)=>cardHTML(p,i)).join('');
+document.getElementById('chips').innerHTML = CATS.map((c,i)=>`<button class="chip${i==0?' on':''}" data-c="${c}">${c}</button>`).join('');
+
+document.getElementById('chips').addEventListener('click', e=>{
+  const b = e.target.closest('.chip'); if(!b) return;
+  document.querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');
+  const c = b.dataset.c;
+  document.querySelectorAll('#allGrid .card').forEach(card=>{
+    const show = c==='همه' || card.dataset.cat===c;
+    gsap.to(card, {autoAlpha: show?1:0, scale: show?1:.92, duration:.35,
+      onStart:()=>{if(show)card.style.display=''},
+      onComplete:()=>{if(!show)card.style.display='none'}});
+  });
+});
+
+function openSite(folder, title){
+  document.getElementById('mTtl').textContent = title || 'پیش‌نمایش';
+  const url = BASE + folder + '/index.html';
+  document.getElementById('mTab').href = url;
+  document.getElementById('mFrame').src = url;
+  const m = document.getElementById('modal');
+  m.classList.add('on');
+  gsap.fromTo('.modal .frame',{y:40,scale:.96,opacity:0},{y:0,scale:1,opacity:1,duration:.45,ease:'power3.out'});
+  document.body.style.overflow='hidden';
+}
+function closeModal(){
+  document.getElementById('modal').classList.remove('on');
+  document.getElementById('mFrame').src='about:blank';
+  document.body.style.overflow='';
+}
+addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+
+/* ===== GSAP ===== */
+gsap.registerPlugin(ScrollTrigger);
+// هیرو: ورود پلکانی
+gsap.utils.toArray('.hero .reveal-el').forEach((el,i)=>{
+  gsap.from(el,{y:34,opacity:0,duration:.9,delay:.15+i*.12,ease:'power3.out',clearProps:'all'});
+});
+// اسکرول‌تریگر برای بقیه
+gsap.utils.toArray('section .reveal-el').forEach((el,i)=>{
+  gsap.from(el,{
+    y:44,opacity:0,duration:.85,ease:'power3.out',
+    scrollTrigger:{trigger:el,start:'top 88%',toggleActions:'play none none none'}
+  });
+});
+// کارت‌ها: استگر + پارالاکس ملایم
+gsap.utils.toArray('.card').forEach((card,i)=>{
+  gsap.from(card,{y:60,opacity:0,duration:.8,delay:(i%3)*.12,ease:'power3.out',
+    scrollTrigger:{trigger:card,start:'top 90%'}});
+  card.addEventListener('mouseenter',()=>gsap.to(card,{y:-8,borderColor:'rgba(34,211,238,.45)',duration:.35,ease:'power2.out'}));
+  card.addEventListener('mouseleave',()=>gsap.to(card,{y:0,borderColor:'rgba(148,180,255,.12)',duration:.35}));
+});
+// شمارنده‌ها
+document.querySelectorAll('.stat .n').forEach(el=>{
+  const target = +el.dataset.count;
+  const o = {v:0};
+  ScrollTrigger.create({trigger:el,start:'top 92%',once:true,onEnter:()=>{
+    gsap.to(o,{v:target,duration:1.6,ease:'power2.out',onUpdate:()=>el.textContent=Math.round(o.v)+(target>=100?'':'+')});
+  }});
+});
+// پارالاکس پس‌زمینه هیرو
+gsap.to('.hero::before',{y:120}); // no-op safe
+gsap.to('.hero',{yPercent:18,opacity:.4,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+// هدر
+addEventListener('scroll',()=>document.getElementById('hdr').classList.toggle('solid',scrollY>30));
+</script>
+</body>
+</html>
