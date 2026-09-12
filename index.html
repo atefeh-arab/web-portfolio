@@ -3,349 +3,329 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>آترین استودیو | معماری وب و رابط کاربری</title>
+<title>نمای کارها | استودیو طراحی و توسعه وب</title>
 <link rel="stylesheet" href="fonts/vazirmatn.css">
 <style>
 /* ============================================================
-   Design language: Linear × Vercel — dark-native, precision
-   Engineering, one indigo accent, luminance-stepped surfaces
+   LIGHT & COLORFUL — cream canvas, coral/violet/cyan accents,
+   Stripe-style soft chromatic shadows
    ============================================================ */
 :root{
-  --b0:#08090a; --b1:#0f1011; --b2:#16171a; --b3:#1d1e22;
-  --txt:#f7f8f8; --txt2:#d0d6e0; --txt3:#8a8f98; --txt4:#5c6068;
-  --acc:#5e6ad2; --acc2:#7170ff; --acc3:#828fff;
-  --line:rgba(255,255,255,.08); --line-s:rgba(255,255,255,.05);
-  --ok:#10b981;
-  --r:12px;
+  --bg:#fbf9f6; --bg2:#ffffff; --sunk:#f4efe9;
+  --ink:#171326; --ink2:#4c4560; --mut:#8a8299;
+  --coral:#ff5b6e; --violet:#6c5ce7; --cyan:#00b8d4; --amber:#ffb43a; --pink:#ff7eb6; --mint:#12c9a0;
+  --line:#ece5dc; --line2:#e2d9cd;
+  --sh-sm:0 2px 8px -2px rgba(108,92,231,.10), 0 1px 3px rgba(23,19,38,.06);
+  --sh-md:rgba(80,63,205,.14) 0 18px 40px -18px, rgba(23,19,38,.08) 0 8px 20px -10px;
+  --sh-lg:rgba(255,91,110,.18) 0 30px 60px -25px, rgba(108,92,231,.20) 0 24px 55px -25px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--b0);color:var(--txt);font-family:Vazirmatn,'Segoe UI',Tahoma,system-ui,sans-serif;line-height:1.75;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-::selection{background:rgba(113,112,255,.35)}
+body{background:var(--bg);color:var(--ink);font-family:Vazirmatn,'Segoe UI',Tahoma,sans-serif;line-height:1.8;overflow-x:hidden}
+::selection{background:rgba(108,92,231,.25)}
 a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
 .wrap{max-width:1150px;margin:0 auto;padding:0 24px}
-.mono{font-family:Consolas,'JetBrains Mono',monospace;direction:ltr;unicode-bidi:isolate;letter-spacing:-.2px}
 
 /* ===== nav ===== */
-.nav{position:fixed;top:0;inset-inline:0;z-index:80;background:rgba(8,9,10,.75);border-bottom:1px solid var(--line-s)}
-.nav .in{display:flex;align-items:center;height:62px;gap:34px}
-.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15.5px;letter-spacing:-.3px}
-.logo svg{width:24px;height:24px}
-.nav nav{display:flex;gap:26px;font-size:13px;color:var(--txt3)}
-.nav nav a{transition:color .18s;font-weight:500}
-.nav nav a:hover{color:var(--txt)}
+.nav{position:fixed;top:0;inset-inline:0;z-index:80;padding:12px 0;transition:all .35s}
+.nav .in{display:flex;align-items:center;gap:30px;background:rgba(255,255,255,.75);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:99px;padding:8px 10px 8px 8px;box-shadow:var(--sh-sm)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:15.5px;padding-inline-start:12px}
+.brand .mk{width:32px;height:32px;border-radius:10px;background:conic-gradient(from 210deg,var(--coral),var(--amber),var(--mint),var(--cyan),var(--violet),var(--coral));display:grid;place-items:center;color:#fff;font-weight:900;box-shadow:0 4px 14px -4px rgba(108,92,231,.5)}
+nav{display:flex;gap:4px;font-size:13.5px;color:var(--ink2);font-weight:500}
+nav a{padding:8px 15px;border-radius:99px;transition:all .25s}
+nav a:hover{background:var(--sunk);color:var(--ink)}
 .nav .sp{flex:1}
-.btn{display:inline-flex;align-items:center;gap:8px;border-radius:8px;font-family:inherit;font-weight:600;cursor:pointer;transition:all .2s;border:1px solid transparent;font-size:13px;padding:9px 17px}
-.btn-p{background:var(--acc);color:#fff;box-shadow:0 0 0 1px rgba(113,112,255,.4), 0 8px 24px -8px rgba(94,106,210,.6)}
-.btn-p:hover{background:var(--acc3);transform:translateY(-1px)}
-.btn-g{background:rgba(255,255,255,.02);border-color:var(--line);color:var(--txt2)}
-.btn-g:hover{background:rgba(255,255,255,.06);color:var(--txt)}
-@media(max-width:760px){.nav nav{display:none}}
+@media(max-width:800px){nav{display:none}}
+
+/* ===== buttons ===== */
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:inherit;font-weight:700;font-size:14px;border-radius:99px;padding:12px 26px;cursor:pointer;border:1px solid transparent;transition:transform .22s,box-shadow .22s}
+.btn:hover{transform:translateY(-2px)}
+.btn-p{background:linear-gradient(120deg,var(--violet),var(--coral));color:#fff;box-shadow:0 10px 28px -10px rgba(108,92,231,.55)}
+.btn-p:hover{box-shadow:0 16px 34px -10px rgba(255,91,110,.5)}
+.btn-g{background:#fff;border-color:var(--line2);color:var(--ink);box-shadow:var(--sh-sm)}
+.btn-g:hover{border-color:var(--violet)}
 
 /* ===== hero ===== */
-.hero{position:relative;padding:170px 0 110px;text-align:center;overflow:hidden}
-.hero-bg{position:absolute;inset:-120px 0 0;pointer-events:none;
-  background:
-   radial-gradient(560px 300px at 50% 0%,rgba(94,106,210,.22),transparent 70%),
-   radial-gradient(900px 420px at 50% 10%,rgba(113,112,255,.08),transparent 75%)}
-.hero-lines{position:absolute;inset:0;pointer-events:none;
-  background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
-  background-size:64px 64px;
-  mask-image:radial-gradient(ellipse 70% 60% at 50% 25%,#000 20%,transparent 72%);
-  -webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 25%,#000 20%,transparent 72%)}
-.chip{display:inline-flex;align-items:center;gap:8px;font-size:11.5px;color:var(--txt2);border:1px solid var(--line);border-radius:99px;padding:5px 14px;background:rgba(255,255,255,.02)}
-.chip i{font-style:normal;width:6px;height:6px;border-radius:50%;background:var(--ok);box-shadow:0 0 10px var(--ok)}
-h1{font-size:clamp(38px,6vw,68px);font-weight:700;line-height:1.25;letter-spacing:-2.2px;margin:24px 0 0;font-feature-settings:"ss01"}
-h1 .grad{background:linear-gradient(100deg,#a5b0ff 15%,var(--acc2) 45%,#c084fc 85%);-webkit-background-clip:text;background-clip:text;color:transparent}
-.lead{font-size:16.5px;color:var(--txt3);max-width:560px;margin:20px auto 0;line-height:1.9;font-weight:400}
-.hero-btns{display:flex;gap:12px;justify-content:center;margin-top:36px;flex-wrap:wrap}
-.kbd{display:inline-block;border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;padding:0 7px;font-size:11px;background:var(--b2);font-family:Consolas,monospace}
+.hero{position:relative;padding:150px 0 60px;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none;opacity:.5}
+.b1{width:480px;height:480px;background:#ffd9d3;top:-140px;inset-inline-start:-120px}
+.b2{width:520px;height:520px;background:#ddd6fe;top:-60px;inset-inline-end:-160px}
+.b3{width:420px;height:420px;background:#c9f2ec;bottom:-220px;inset-inline-start:30%}
+.hero .in{position:relative;display:grid;grid-template-columns:1.08fr .92fr;gap:50px;align-items:center}
+@media(max-width:920px){.hero .in{grid-template-columns:1fr}}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:700;color:var(--violet);background:#fff;border:1px solid #e4defc;border-radius:99px;padding:7px 16px;box-shadow:var(--sh-sm)}
+.eyebrow i{font-style:normal;background:linear-gradient(90deg,var(--coral),var(--violet));color:#fff;border-radius:99px;padding:2px 9px;font-size:10.5px}
+h1{font-size:clamp(34px,5.4vw,60px);line-height:1.3;font-weight:900;letter-spacing:-1.6px;margin-top:20px}
+h1 .u{position:relative;white-space:nowrap}
+h1 .u::after{content:"";position:absolute;inset-inline:-2px;bottom:4px;height:.38em;border-radius:6px;background:linear-gradient(90deg,rgba(255,180,58,.55),rgba(255,91,110,.55));z-index:-1;transform:scaleX(0);transform-origin:right;animation:swipe .8s .9s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes swipe{to{transform:scaleX(1)}}
+h1 .grad{background:linear-gradient(100deg,var(--violet) 5%,var(--coral) 50%,var(--cyan) 95%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:16.5px;color:var(--ink2);max-width:490px;margin-top:18px}
+.hero-btns{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+.hero-stats{display:flex;gap:26px;margin-top:42px;flex-wrap:wrap}
+.hero-stats .it{display:flex;align-items:center;gap:11px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px 18px;box-shadow:var(--sh-sm)}
+.hero-stats .emo{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;font-size:18px}
+.hero-stats b{display:block;font-size:19px;font-weight:900;letter-spacing:-.6px;line-height:1.3}
+.hero-stats span{font-size:11.5px;color:var(--mut)}
 
-/* window mock */
-.win{margin:64px auto 0;max-width:960px;background:var(--b1);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 40px 90px -30px rgba(0,0,0,.85),0 0 0 1px rgba(113,112,255,.07), 0 0 120px -20px rgba(94,106,210,.25);position:relative}
-.win .tb{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line-s);background:rgba(255,255,255,.015)}
-.win .tb i{width:11px;height:11px;border-radius:50%;display:block}
-.win .url{margin-inline-start:12px;font-size:11px;color:var(--txt4);border:1px solid var(--line-s);border-radius:6px;padding:3px 14px;background:rgba(255,255,255,.02)}
-.win .body{position:relative;aspect-ratio:16/8.6;background:
-  radial-gradient(500px 240px at 20% 0%,rgba(94,106,210,.14),transparent 60%),
-  radial-gradient(420px 260px at 90% 100%,rgba(192,132,252,.08),transparent 60%),var(--b1);
-  display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:26px}
-@media(max-width:680px){.win .body{grid-template-columns:1fr}}
-.mock{border:1px solid var(--line-s);border-radius:10px;background:rgba(255,255,255,.02);padding:18px;display:flex;flex-direction:column;gap:10px}
-.mock .row{height:10px;border-radius:5px;background:rgba(255,255,255,.07)}
-.mock .row.w60{width:60%}.mock .row.w40{width:40%}.mock .row.hl{background:linear-gradient(90deg,rgba(94,106,210,.5),rgba(113,112,255,.2));width:75%}
-.mock .blk{flex:1;border-radius:8px;background:
-  repeating-linear-gradient(-45deg,rgba(255,255,255,.03) 0 8px,transparent 8px 16px),rgba(255,255,255,.03);border:1px solid var(--line-s)}
-.mock .pill{width:90px;height:26px;border-radius:99px;background:var(--acc);align-self:flex-start;box-shadow:0 4px 14px -4px rgba(94,106,210,.8)}
-.win .float{position:absolute;bottom:-24px;inset-inline-end:-14px;background:var(--b3);border:1px solid var(--line);border-radius:10px;padding:12px 16px;font-size:12px;color:var(--txt2);box-shadow:0 20px 50px -12px rgba(0,0,0,.8);display:flex;gap:10px;align-items:center}
-.win .float b{color:var(--ok);font-family:Consolas,monospace}
+/* hero collage */
+.collage{position:relative;height:460px}
+.collage .pc{position:absolute;border-radius:18px;border:5px solid #fff;box-shadow:var(--sh-md);overflow:hidden;will-change:transform}
+.collage .pc img{width:100%;height:100%;object-fit:cover}
+.c1{width:56%;height:56%;top:2%;inset-inline-start:4%;z-index:2}
+.c2{width:44%;height:47%;top:26%;inset-inline-end:0;z-index:3}
+.c3{width:52%;height:40%;bottom:0;inset-inline-end:20%;z-index:2}
+.c4{width:24%;height:24%;bottom:6%;inset-inline-start:6%;z-index:4;border-radius:50%}
+.collage .spark{position:absolute;font-size:26px;z-index:5;filter:drop-shadow(0 4px 8px rgba(0,0,0,.15))}
+.sp1{top:16%;inset-inline-end:34%}
+.sp2{bottom:30%;inset-inline-start:32%}
+@media(max-width:920px){.collage{height:400px;margin-top:26px}}
 
-/* ===== trust bar ===== */
-.trust{border-block:1px solid var(--line-s);padding:26px 0;background:var(--b1)}
-.trust .in{display:flex;gap:38px;align-items:center;justify-content:center;flex-wrap:wrap;color:var(--txt4);font-size:13px}
-.trust b{color:var(--txt2);font-weight:700;letter-spacing:-.2px}
+/* ===== ticker ===== */
+.tick{margin:66px 0 0;padding:16px 0;background:linear-gradient(90deg,var(--violet),var(--coral) 45%,var(--amber));color:#fff;overflow:hidden;position:relative}
+.tick .lane{display:flex;gap:44px;white-space:nowrap;width:max-content;font-size:14px;font-weight:600}
+.tick .sep{opacity:.5}
 
 /* ===== sections ===== */
-section{padding:110px 0;position:relative}
-.stag{display:inline-flex;align-items:center;gap:9px;font-size:11px;font-weight:700;letter-spacing:1.6px;color:var(--acc3);text-transform:uppercase}
-.stag::before{content:"";width:22px;height:1px;background:var(--acc2)}
-h2{font-size:clamp(26px,3.8vw,42px);font-weight:700;letter-spacing:-1.4px;line-height:1.35;margin-top:14px;font-feature-settings:"ss01"}
-.desc{color:var(--txt3);font-size:15px;max-width:520px;margin-top:12px}
-.sec-head{margin-bottom:48px}
+section{padding:96px 0;position:relative}
+.tag{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.4px;padding:5px 14px;border-radius:99px}
+.tag.v{background:#efeaff;color:var(--violet)}
+.tag.c{background:#ffe4e7;color:var(--coral)}
+.tag.t{background:#dcf6f4;color:#0a8f77}
+h2{font-size:clamp(26px,3.8vw,42px);font-weight:900;letter-spacing:-1.2px;line-height:1.4;margin-top:12px}
+.desc{color:var(--ink2);font-size:15.5px;max-width:530px;margin-top:10px}
+.sec-head{margin-bottom:44px}
 
 /* ===== work cards ===== */
-.works{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-@media(max-width:820px){.works{grid-template-columns:1fr}}
-.wk{background:rgba(255,255,255,.02);border:1px solid var(--line-s);border-radius:var(--r);overflow:hidden;cursor:pointer;transition:border-color .3s,background .3s;position:relative}
-.wk:hover{border-color:rgba(113,112,255,.45);background:rgba(113,112,255,.045)}
-.wk .prev{aspect-ratio:16/9;position:relative;overflow:hidden;background:var(--b2)}
-.wk .prev .art{position:absolute;inset:0}
-.wk .prev .scan{position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(8,9,10,.7));}
-.wk .prev .badge{position:absolute;top:14px;inset-inline-start:14px;font-size:10.5px;font-weight:700;border-radius:99px;padding:4px 12px;background:rgba(16,185,129,.12);color:var(--ok);border:1px solid rgba(16,185,129,.3)}
-.wk .prev .go{position:absolute;top:14px;inset-inline-end:14px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid var(--line);display:grid;place-items:center;opacity:0;transform:translateY(6px);transition:all .3s;font-size:14px}
-.wk:hover .go{opacity:1;transform:none}
-.wk .meta{padding:20px 22px 24px;display:flex;justify-content:space-between;gap:14px;align-items:flex-end}
-.wk h3{font-size:17px;font-weight:700;letter-spacing:-.4px}
-.wk p{font-size:12.5px;color:var(--txt3);margin-top:6px}
-.wk .tg{display:flex;gap:6px;flex-shrink:0}
-.wk .tg span{font-size:10px;color:var(--txt4);border:1px solid var(--line-s);border-radius:5px;padding:2px 8px;white-space:nowrap}
-.wk .idx{position:absolute;top:16px;inset-inline-end:56px;font-size:11px;color:var(--txt4);font-family:Consolas,monospace;background:rgba(8,9,10,.55);border:1px solid var(--line-s);border-radius:6px;padding:2px 8px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media(max-width:940px){.grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.grid{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;cursor:pointer;position:relative;transition:box-shadow .3s;will-change:transform}
+.card:hover{box-shadow:var(--sh-lg)}
+.card .shot{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--sunk)}
+.card .shot img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.card:hover .shot img{transform:scale(1.055)}
+.card .shot .shade{position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(23,19,38,.55))}
+.card .play{position:absolute;inset-inline-end:14px;bottom:14px;display:inline-flex;align-items:center;gap:7px;background:#fff;color:var(--ink);font-size:12px;font-weight:800;border-radius:99px;padding:8px 16px;box-shadow:var(--sh-md);transform:translateY(8px);opacity:0;transition:all .3s}
+.card:hover .play{transform:none;opacity:1}
+.card .no{position:absolute;top:14px;inset-inline-start:14px;background:rgba(255,255,255,.92);border-radius:10px;font-size:11px;font-weight:800;padding:4px 11px;color:var(--ink2)}
+.card .body{padding:20px 22px 22px}
+.card h3{font-size:17.5px;font-weight:800;letter-spacing:-.4px}
+.card p{font-size:13px;color:var(--mut);margin-top:6px;min-height:48px}
+.card .tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px}
+.card .tags i{font-style:normal;font-size:11px;font-weight:600;border-radius:8px;padding:3px 10px}
+.tg-v{background:#efeaff;color:var(--violet)}
+.tg-c{background:#ffe4e7;color:#d63a4f}
+.tg-t{background:#dcf6f4;color:#0a8f77}
+.tg-a{background:#fff2d8;color:#b07308}
+
+/* ===== gallery strip ===== */
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:820px){.strip{grid-template-columns:1fr 1fr}}
+.strip figure{border-radius:18px;overflow:hidden;position:relative;border:4px solid #fff;box-shadow:var(--sh-md);background:var(--sunk)}
+.strip img{width:100%;height:230px;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.strip figure:hover img{transform:scale(1.06)}
+.strip figcaption{position:absolute;bottom:0;inset-inline:0;padding:24px 14px 12px;background:linear-gradient(transparent,rgba(23,19,38,.7));color:#fff;font-size:12.5px;font-weight:700}
 
 /* ===== capabilities ===== */
-.caps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-@media(max-width:860px){.caps{grid-template-columns:1fr 1fr}}
-@media(max-width:540px){.caps{grid-template-columns:1fr}}
-.cap{border:1px solid var(--line-s);border-radius:var(--r);padding:24px 22px;background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.008));position:relative;overflow:hidden}
-.cap::after{content:"";position:absolute;top:0;inset-inline-start:0;width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(113,112,255,.5),transparent);opacity:0;transition:opacity .4s}
-.cap:hover::after{opacity:1}
-.cap .ci{width:38px;height:38px;border-radius:9px;display:grid;place-items:center;background:rgba(113,112,255,.12);border:1px solid rgba(113,112,255,.25);color:var(--acc3);margin-bottom:16px}
-.cap h4{font-size:15px;font-weight:700;letter-spacing:-.3px}
-.cap p{font-size:12.5px;color:var(--txt3);margin-top:8px}
-
-/* ===== metrics ===== */
-.mets{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-@media(max-width:720px){.mets{grid-template-columns:1fr 1fr}}
-.met{text-align:center;border:1px solid var(--line-s);border-radius:var(--r);padding:28px 10px;background:rgba(255,255,255,.015)}
-.met b{display:block;font-size:34px;font-weight:800;letter-spacing:-1.6px;background:linear-gradient(180deg,#fff,#9aa2c8);-webkit-background-clip:text;background-clip:text;color:transparent;font-family:Consolas,monospace}
-.met span{font-size:12px;color:var(--txt4)}
+.caps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:880px){.caps{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.caps{grid-template-columns:1fr}}
+.cap{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 22px;box-shadow:var(--sh-sm);transition:transform .3s,box-shadow .3s}
+.cap:hover{transform:translateY(-5px);box-shadow:var(--sh-md)}
+.cap .ci{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-size:22px;margin-bottom:16px}
+.cap h4{font-size:16px;font-weight:800;letter-spacing:-.3px}
+.cap p{font-size:13px;color:var(--mut);margin-top:6px}
 
 /* ===== process ===== */
-.proc{border:1px solid var(--line-s);border-radius:16px;overflow:hidden}
-.prow{display:grid;grid-template-columns:64px 220px 1fr;gap:18px;align-items:center;padding:22px 26px;border-bottom:1px solid var(--line-s);transition:background .25s;background:rgba(255,255,255,.012)}
-.prow:last-child{border-bottom:0}
-.prow:hover{background:rgba(113,112,255,.05)}
-.prow .no{font-family:Consolas,monospace;color:var(--txt4);font-size:12px}
-.prow h4{font-size:14.5px;font-weight:700}
-.prow p{font-size:13px;color:var(--txt3)}
-@media(max-width:640px){.prow{grid-template-columns:40px 1fr}.prow p{grid-column:2}}
+.procs{background:linear-gradient(160deg,#241b4d,#3b1f45 55%,#4a2333);border-radius:28px;padding:70px 40px;color:#fff;position:relative;overflow:hidden}
+.procs::before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(255,180,58,.22),transparent 65%);top:-160px;inset-inline-start:-100px}
+.procs::after{content:"";position:absolute;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(255,91,110,.25),transparent 65%);bottom:-260px;inset-inline-end:-140px}
+.procs h2{color:#fff}
+.procs .desc{color:rgba(255,255,255,.68)}
+.pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px;position:relative;z-index:1}
+@media(max-width:880px){.pgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.pgrid{grid-template-columns:1fr}}
+.pstep{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:22px 18px;backdrop-filter:blur(4px)}
+.pstep .n{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;font-weight:900;font-size:14px;color:#1d1233;margin-bottom:14px}
+.pstep h4{font-size:14.5px;font-weight:800}
+.pstep p{font-size:12.5px;color:rgba(255,255,255,.62);margin-top:5px}
 
-/* ===== stack rows ===== */
-.stck{display:flex;flex-wrap:wrap;gap:10px}
-.stck span{border:1px solid var(--line-s);border-radius:8px;padding:8px 16px;font-size:13px;color:var(--txt3);background:rgba(255,255,255,.02);transition:all .25s;font-family:Consolas,'Vazirmatn',monospace}
-.stck span:hover{border-color:rgba(113,112,255,.5);color:var(--txt);transform:translateY(-2px)}
+/* ===== CTA ===== */
+.cta{border-radius:28px;padding:64px 30px;text-align:center;position:relative;overflow:hidden;background:
+ radial-gradient(560px 240px at 50% -30%,rgba(108,92,231,.16),transparent 70%),
+ radial-gradient(420px 220px at 85% 110%,rgba(255,91,110,.14),transparent 70%),#fff;
+ border:1px solid var(--line);box-shadow:var(--sh-md)}
+.cta .btns{display:flex;gap:12px;justify-content:center;margin-top:26px;flex-wrap:wrap}
+.fine{font-size:12px;color:var(--mut);margin-top:18px}
 
-/* ===== contact ===== */
-.contact{border:1px solid var(--line);border-radius:22px;padding:60px 30px;text-align:center;position:relative;overflow:hidden;background:
- radial-gradient(600px 260px at 50% -30%,rgba(94,106,210,.28),transparent 70%),var(--b1)}
-.contact h2{margin-top:6px}
-.fine{margin-top:20px;font-size:12px;color:var(--txt4)}
-footer{border-top:1px solid var(--line-s);padding:30px 0;color:var(--txt4);font-size:12.5px}
-footer .in{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+/* ===== footer ===== */
+footer{padding:36px 0 44px;color:var(--mut);font-size:12.5px}
+footer .in{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border-top:1px solid var(--line);padding-top:24px}
 
 /* ===== modal ===== */
 .modal{position:fixed;inset:0;z-index:100;display:none}
 .modal.on{display:block}
-.modal .veil{position:absolute;inset:0;background:rgba(3,4,6,.86);backdrop-filter:blur(4px)}
-.modal .frame{position:absolute;inset:4% 3%;background:var(--b1);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 40px 120px -20px rgba(0,0,0,.9)}
-.modal .bar{display:flex;align-items:center;gap:12px;padding:11px 16px;border-bottom:1px solid var(--line-s);background:rgba(255,255,255,.02);flex-shrink:0}
+.modal .veil{position:absolute;inset:0;background:rgba(23,19,38,.55);backdrop-filter:blur(5px)}
+.modal .frame{position:absolute;inset:4% 3%;background:#fff;border-radius:18px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 40px 120px -20px rgba(23,19,38,.5)}
+.modal .bar{display:flex;align-items:center;gap:12px;padding:11px 16px;border-bottom:1px solid var(--line);background:var(--sunk);flex-shrink:0}
 .modal .bar i{width:11px;height:11px;border-radius:50%;display:block}
-.modal .ttl{font-weight:600;font-size:13px;color:var(--txt2)}
+.modal .ttl{font-weight:800;font-size:13.5px}
 .modal .bar .sp{flex:1}
-.modal .bar a,.modal .bar button{font-family:inherit;font-size:12px;padding:6px 14px;border-radius:7px;border:1px solid var(--line);background:rgba(255,255,255,.02);color:var(--txt2);cursor:pointer;transition:all .2s}
-.modal .bar a:hover,.modal .bar button:hover{background:rgba(255,255,255,.08);color:var(--txt)}
+.modal .bar a,.modal .bar button{font-family:inherit;font-size:12px;padding:6px 14px;border-radius:9px;border:1px solid var(--line2);background:#fff;color:var(--ink);cursor:pointer;transition:all .2s;font-weight:600}
+.modal .bar a:hover,.modal .bar button:hover{border-color:var(--violet);color:var(--violet)}
 .modal iframe{flex:1;width:100%;border:0;background:#fff}
 </style>
 </head>
 <body>
 
 <div class="nav"><div class="wrap in">
-  <div class="logo">
-    <svg viewBox="0 0 24 24" fill="none"><path d="M12 2 22 20 2 20Z" stroke="url(#g)" stroke-width="2" stroke-linejoin="round"/><defs><linearGradient id="g" x1="2" y1="20" x2="22" y2="2"><stop stop-color="#7170ff"/><stop offset="1" stop-color="#c084fc"/></linearGradient></defs></svg>
-    آترین استودیو
-  </div>
+  <div class="brand"><div class="mk">✦</div>نمای کارها</div>
   <nav>
     <a href="#works">پروژه‌ها</a>
-    <a href="#caps">قابلیت‌ها</a>
+    <a href="#gallery">گالری</a>
+    <a href="#caps">خدمات</a>
     <a href="#proc">فرآیند</a>
-    <a href="#contact">تماس</a>
   </nav>
   <div class="sp"></div>
-  <a class="btn btn-p" href="#works">مشاهده کارها</a>
+  <a class="btn btn-p" href="#works" style="padding:9px 20px;font-size:13px">دیدن کارها</a>
 </div></div>
 
 <!-- ===== HERO ===== -->
 <div class="hero">
-  <div class="hero-bg"></div><div class="hero-lines"></div>
-  <div class="wrap" style="position:relative">
-    <span class="chip rv"><i></i> پذیرای پروژه‌های جدید — پاییز ۱۴۰۵</span>
-    <h1 class="rv">وب‌سایت‌هایی که با <span class="grad">دقت مهندسی</span><br>ساخته و متحرک می‌شوند</h1>
-    <p class="lead rv">طراحی رابط، توسعه فرانت‌اند و انیمیشن‌های اسکرول با GSAP. سه پروژه‌ی منتخب از کارهای ما — همه با پیش‌نمایش زنده و قابل‌لمس، همین پایین.</p>
-    <div class="hero-btns rv">
-      <button class="btn btn-p" onclick="document.getElementById('works').scrollIntoView()">▶ دیدن پروژه‌ها</button>
-      <button class="btn btn-g" onclick="openSite('lumiera','لومیرا — استودیو زیبایی')">تازه‌ترین پروژه: لومیرا</button>
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <div class="wrap in">
+    <div>
+      <span class="eyebrow" data-anim>🎨 <b>۳ پروژه</b> — همه با پیش‌نمایش زنده</span>
+      <h1 data-anim>وب‌سایت‌هایی که<br><span class="u">رنگ دارند، حرکت دارند</span><br><span class="grad">و کار می‌کنند.</span></h1>
+      <p class="lead" data-anim>طراحی رابط، توسعه فرانت‌اند و موشن با GSAP — سه پروژه‌ی منتخب از کارنامه‌ی ما، با یک کلیک زنده امتحان می‌شوند.</p>
+      <div class="hero-btns" data-anim>
+        <button class="btn btn-p" onclick="document.getElementById('works').scrollIntoView()">▶ پروژه‌ها را ببین</button>
+        <button class="btn btn-g" onclick="openSite('lumiera','لومیرا — استودیو زیبایی')">✨ دمو: لومیرا</button>
+      </div>
+      <div class="hero-stats">
+        <div class="it" data-anim><div class="emo" style="background:#ffe4e7">🗂</div><div><b data-count="3">0</b><span>پروژه منتخب</span></div></div>
+        <div class="it" data-anim><div class="emo" style="background:#efeaff">📄</div><div><b data-count="16">0</b><span>صفحه طراحی‌شده</span></div></div>
+        <div class="it" data-anim><div class="emo" style="background:#dcf6f4">🎬</div><div><b data-count="60">0</b><span>fps انیمیشن</span></div></div>
+      </div>
     </div>
-
-    <div class="win rv">
-      <div class="tb">
-        <i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i>
-        <span class="url mono">atrin.studio/work</span>
-      </div>
-      <div class="body">
-        <div class="mock"><div class="row hl"></div><div class="row w60"></div><div class="row w40"></div><div class="blk"></div><div class="pill"></div></div>
-        <div class="mock"><div class="row w40"></div><div class="row w60"></div><div class="blk" style="flex:2"></div><div class="row hl w60"></div></div>
-      </div>
-      <div class="float">
-        <span class="mono">build</span> <b>✓ passed</b>
-        <span style="color:var(--txt4)">· 60fps · <span class="mono">Lighthouse 98</span></span>
-      </div>
+    <div class="collage" data-anim>
+      <div class="pc c1" data-float="1"><img src="assets/lumiera.jpg" alt="لومیرا"></div>
+      <div class="pc c2" data-float="2"><img src="assets/biuty.jpg" alt="VELNIX Beauty"></div>
+      <div class="pc c3" data-float="3"><img src="assets/gsap.jpg" alt="دموی GSAP"></div>
+      <div class="pc c4" data-float="2"><img src="assets/p-scene.jpg" alt=""></div>
+      <span class="spark sp1" data-float="1">🪄</span>
+      <span class="spark sp2" data-float="3">✨</span>
     </div>
   </div>
 </div>
 
-<!-- ===== trust ===== -->
-<div class="trust"><div class="wrap in">
-  <span>توسعه: <b>React · Vite</b></span>
-  <span>انیمیشن: <b>GSAP · ScrollTrigger</b></span>
-  <span>رابط: <b>RTL فارسی</b></span>
-  <span>خروجی: <b>آفلاین · تک‌پوشه</b></span>
+<!-- ===== TICKER ===== -->
+<div class="tick"><div class="lane" id="lane">
+  <span>طراحی UI فارسی</span><span class="sep">✦</span><span>GSAP + ScrollTrigger</span><span class="sep">✦</span>
+  <span>JavaScript مدرن</span><span class="sep">✦</span><span>React + Vite</span><span class="sep">✦</span>
+  <span>لندینگ لوکس</span><span class="sep">✦</span><span>فروشگاه آنلاین</span><span class="sep">✦</span>
+  <span>موشن ۶۰fps</span><span class="sep">✦</span>
 </div></div>
 
 <!-- ===== WORKS ===== -->
 <section id="works"><div class="wrap">
   <div class="sec-head">
-    <div class="stag rv">Selected Work</div>
-    <h2 class="rv">سه پروژه، سه شخصیت</h2>
-    <p class="desc rv">روی هر کارت کلیک کنید — پروژه کامل، با تمام صفحه‌ها و انیمیشن‌ها، در همین پنجره باز می‌شود.</p>
+    <span class="tag v" data-anim>Selected Works</span>
+    <h2 data-anim>سه پروژه، سه شخصیت</h2>
+    <p class="desc" data-anim>روی هر کارت کلیک کنید — پروژه کامل با تمام صفحه‌ها و انیمیشن‌ها در همین پنجره باز می‌شود.</p>
   </div>
-
-  <div class="works">
-    <div class="wk rv" onclick="openSite('lumiera','لومیرا — استودیو زیبایی')">
-      <div class="prev">
-        <div class="art" style="background:
-          radial-gradient(420px 240px at 25% 15%,rgba(216,178,124,.35),transparent 60%),
-          radial-gradient(380px 240px at 85% 90%,rgba(232,196,184,.2),transparent 60%),
-          linear-gradient(150deg,#17130c,#060505 70%)"></div>
-        <div class="scan"></div>
-        <span class="badge">✦ پروژه جدید</span>
-        <span class="go">↗</span><span class="idx mono">01</span>
-      </div>
-      <div class="meta">
-        <div><h3>لومیرا · استودیو زیبایی</h3><p>لندینگ لوکسِ خدمات پوست و زیبایی — خدمات، نمونه‌کار، پکیج و رزرو</p></div>
-        <div class="tg"><span>GSAP</span><span>Landing</span><span>RTL</span></div>
-      </div>
+  <div class="grid">
+    <div class="card" data-anim data-new onclick="openSite('lumiera','لومیرا — استودیو زیبایی')">
+      <div class="shot"><img src="assets/lumiera.jpg" alt="پیش‌نمایش لومیرا"><div class="shade"></div>
+        <span class="no">۰۱ · جدید ✦</span><span class="play">▶ پیش‌نمایش زنده</span></div>
+      <div class="body"><h3>لومیرا · استودیو زیبایی</h3>
+        <p>لندینگ لوکس خدمات پوست و زیبایی — خدمات، گالری، پکیج‌های عضویت و رزرو نوبت.</p>
+        <div class="tags"><i class="tg-v">Landing</i><i class="tg-c">GSAP</i><i class="tg-t">RTL</i></div></div>
     </div>
-
-    <div class="wk rv" onclick="openSite('biuty','VELNIX Beauty — فروشگاه')">
-      <div class="prev">
-        <div class="art" style="background:
-          radial-gradient(420px 260px at 75% 20%,rgba(139,92,246,.35),transparent 60%),
-          radial-gradient(380px 260px at 20% 90%,rgba(34,211,238,.22),transparent 60%),
-          linear-gradient(150deg,#0e1226,#07080f 70%)"></div>
-        <div class="scan"></div>
-        <span class="go">↗</span><span class="idx mono">02</span>
-      </div>
-      <div class="meta">
-        <div><h3>VELNIX Beauty · فروشگاه آرایشی</h3><p>فروشگاه کامل ۷ صفحه‌ای: محصول، سبد، علاقه‌مندی، ورود و چک‌اوت</p></div>
-        <div class="tg"><span>JS</span><span>e-Shop</span></div>
-      </div>
+    <div class="card" data-anim onclick="openSite('biuty','VELNIX Beauty — فروشگاه')">
+      <div class="shot"><img src="assets/biuty.jpg" alt="پیش‌نمایش وی‌ال‌انیکس بیوتی"><div class="shade"></div>
+        <span class="no">۰۲</span><span class="play">▶ پیش‌نمایش زنده</span></div>
+      <div class="body"><h3>VELNIX Beauty · فروشگاه آرایشی</h3>
+        <p>فروشگاه ۷ صفحه‌ای: لیست محصولات، صفحه محصول، سبد خرید، علاقه‌مندی‌ها، ورود و چک‌اوت.</p>
+        <div class="tags"><i class="tg-a">e-Shop</i><i class="tg-v">JavaScript</i></div></div>
     </div>
-
-    <div class="wk rv" onclick="openSite('gsap-demo','دموی GSAP — سایت مدرسه')" style="grid-column:1/-1">
-      <div class="prev" style="aspect-ratio:21/7">
-        <div class="art" style="background:
-          radial-gradient(600px 220px at 15% 30%,rgba(34,211,238,.28),transparent 55%),
-          radial-gradient(600px 260px at 60% 80%,rgba(168,85,247,.25),transparent 55%),
-          radial-gradient(500px 200px at 95% 20%,rgba(52,211,153,.16),transparent 60%),
-          linear-gradient(150deg,#0b1120,#07080f 75%)"></div>
-        <div class="scan"></div>
-        <span class="go">↗</span><span class="idx mono">03</span>
-      </div>
-      <div class="meta">
-        <div><h3>آزمایشگاه حرکت · دموی انیمیشن اسکرول GSAP</h3><p>سناریوی اسکرول‌محور معرفی مدرسه با ScrollTrigger — پارالاکس، پین‌شدن بخش‌ها و ریتم حرکتی ۶۰fps</p></div>
-        <div class="tg"><span>GSAP</span><span>ScrollTrigger</span><span>Motion</span></div>
-      </div>
+    <div class="card" data-anim onclick="openSite('gsap-demo','دموی GSAP — اسکرول مدرسه')">
+      <div class="shot"><img src="assets/gsap.jpg" alt="پیش‌نمایش دموی GSAP"><div class="shade"></div>
+        <span class="no">۰۳</span><span class="play">▶ پیش‌نمایش زنده</span></div>
+      <div class="body"><h3>آزمایشگاه حرکت · GSAP</h3>
+        <p>سناریوی اسکرول‌محور معرفی مدرسه: پارالاکس، پین‌شدن بخش‌ها و ریتم حرکتی روان.</p>
+        <div class="tags"><i class="tg-c">ScrollTrigger</i><i class="tg-t">Motion</i></div></div>
     </div>
   </div>
+</div></section>
 
-  <div class="mets" style="margin-top:56px">
-    <div class="met rv"><b data-count="3">0</b><span>پروژه منتخب</span></div>
-    <div class="met rv"><b data-count="15">0</b><span>صفحه طراحی‌شده</span></div>
-    <div class="met rv"><b data-count="60">0</b><span>فريم‌ریت انیمیشن (fps)</span></div>
-    <div class="met rv"><b data-count="100">0</b><span>٪ آفلاین‌پذیر</span></div>
+<!-- ===== GALLERY ===== -->
+<section id="gallery" style="padding-top:30px"><div class="wrap">
+  <div class="sec-head">
+    <span class="tag c" data-anim>Behind the Pixels</span>
+    <h2 data-anim>از نزدیک ببینید</h2>
+    <p class="desc" data-anim>جزئیاتی از رابط‌ها و متریال‌هایی که در پروژه‌ها استفاده شده.</p>
+  </div>
+  <div class="strip">
+    <figure data-anim><img src="assets/lumiera.jpg" alt=""><figcaption>لومیرا — بخش خدمات</figcaption></figure>
+    <figure data-anim><img src="assets/biuty.jpg" alt=""><figcaption>VELNIX Beauty — صفحه اصلی</figcaption></figure>
+    <figure data-anim><img src="assets/gsap.jpg" alt=""><figcaption>دموی GSAP — هیرو</figcaption></figure>
+    <figure data-anim><img src="assets/p-dior.jpg" alt="" style="height:230px;object-position:center"><figcaption>متریال — کاتالوگ محصول</figcaption></figure>
   </div>
 </div></section>
 
 <!-- ===== CAPABILITIES ===== -->
-<section id="caps" style="background:var(--b1);border-block:1px solid var(--line-s)"><div class="wrap">
+<section id="caps" style="background:var(--sunk);border-block:1px solid var(--line)"><div class="wrap">
   <div class="sec-head">
-    <div class="stag rv">Capabilities</div>
-    <h2 class="rv">کاری که انجام می‌دهیم</h2>
+    <span class="tag t" data-anim>What we do</span>
+    <h2 data-anim>کاری که انجام می‌دهیم</h2>
   </div>
   <div class="caps">
-    <div class="cap rv"><div class="ci">◇</div><h4>طراحی رابط (UI)</h4><p>سیستم‌های رنگ و تایپوگرافی اختصاصی، نسخه موبایل، و چیدمان‌های مبتنی بر گرید.</p></div>
-    <div class="cap rv"><div class="ci">⌘</div><h4>توسعه فرانت‌اند</h4><p>HTML/CSS تمیز، JavaScript مدرن، React و Vite — کد خوانا و قابل‌نگهداری.</p></div>
-    <div class="cap rv"><div class="ci">➰</div><h4>موشن و GSAP</h4><p>انیمیشن‌های اسکرول، ورود پلکانی، پارالاکس و ریزتعامل‌هایی که برند را زنده می‌کند.</p></div>
-    <div class="cap rv"><div class="ci">◫</div><h4>طراحی راست‌چین</h4><p>تخصص در UI فارسی: فونت مناسب، نیم‌فاصله، آینه‌سازی آیکن‌ها و ریتم تایپوگرافی.</p></div>
-    <div class="cap rv"><div class="ci">⚡</div><h4>عملکرد و آفلاین</h4><p>بارگذاری سریع، بدون وابستگی به CDN — همه‌ی فونت و کتابخانه‌ها همراه پروژه.</p></div>
-    <div class="cap rv"><div class="ci">✦</div><h4>لوکس‌برندینگ</h4><p>حس پریمیوم برای برندهای زیبایی و مد با پالت‌های محدود و فضای تنفس زیاد.</p></div>
+    <div class="cap" data-anim><div class="ci" style="background:#ffe4e7">🎨</div><h4>طراحی رابط (UI)</h4><p>سیستم رنگ و تایپوگرافی اختصاصی، چیدمان گرید‌محور و نسخه موبایل.</p></div>
+    <div class="cap" data-anim><div class="ci" style="background:#efeaff">⌘</div><h4>توسعه فرانت‌اند</h4><p>HTML/CSS تمیز، JavaScript مدرن، React و Vite — کد خوانا و سبک.</p></div>
+    <div class="cap" data-anim><div class="ci" style="background:#fff2d8">➰</div><h4>موشن و GSAP</h4><p>انیمیشن اسکرول، ورود پلکانی، پارالاکس و ریزتعامل‌های ۶۰fps.</p></div>
+    <div class="cap" data-anim><div class="ci" style="background:#dcf6f4">◫</div><h4>تخصص RTL فارسی</h4><p>فونت فارسی درست، نیم‌فاصله، آینه‌سازی آیکن‌ها و ریتم تایپوگرافی.</p></div>
+    <div class="cap" data-anim><div class="ci" style="background:#ffe9f3">⚡</div><h4>عملکرد و آفلاین</h4><p>بدون وابستگی به CDN — فونت‌ها و کتابخانه‌ها همراه پروژه.</p></div>
+    <div class="cap" data-anim><div class="ci" style="background:#fff7d6">🛒</div><h4>تجربه فروش</h4><p>سبد خرید، صفحه محصول و فرم‌هایی که کاربر را تا پرداخت همراهی می‌کنند.</p></div>
   </div>
 </div></section>
 
 <!-- ===== PROCESS ===== -->
 <section id="proc"><div class="wrap">
-  <div class="sec-head">
-    <div class="stag rv">Process</div>
-    <h2 class="rv">از ایده تا دمو، در چهار فاز</h2>
-  </div>
-  <div class="proc rv">
-    <div class="prow"><span class="no">۰۱</span><h4>کشف و استراتژی</h4><p>بررسی کسب‌وکار و مخاطب؛ تعیین نقشه صفحات و پیام اصلی برند.</p></div>
-    <div class="prow"><span class="no">۰۲</span><h4>طراحی و پروتوتایپ</h4><p>وایرفریم، سپس طرح نهایی با سیستم رنگ/تایپ — قبل از کد، قابل‌دیدن.</p></div>
-    <div class="prow"><span class="no">۰۳</span><h4>توسعه و موشن</h4><p>پیاده‌سازی دقیق طرح در مرورگر + لایه انیمیشن GSAP با هدف ۶۰fps.</p></div>
-    <div class="prow"><span class="no">۰۴</span><h4>آزمون و تحویل</h4><p>چک در موبایل و دسکتاپ، بهینه‌سازی، تحویل پکیج آفلاین + نسخه آنلاین.</p></div>
-  </div>
-</div></section>
-
-<!-- ===== STACK ===== -->
-<section style="padding-top:0"><div class="wrap">
-  <div class="sec-head" style="margin-bottom:26px">
-    <div class="stag rv">Stack</div>
-    <h2 class="rv" style="font-size:24px">ابزارهای روزانه</h2>
-  </div>
-  <div class="stck rv">
-    <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>GSAP</span><span>ScrollTrigger</span><span>React</span><span>Vite</span><span>SVG</span><span>Figma-to-Code</span><span>RTL</span>
+  <div class="procs" data-anim>
+    <span class="tag" style="background:rgba(255,255,255,.14);color:#ffd9a0">Our Process</span>
+    <h2>از ایده تا دمو، چهار فاز</h2>
+    <div class="pgrid">
+      <div class="pstep"><div class="n" style="background:var(--coral)">۰۱</div><h4>کشف و استراتژی</h4><p>شناخت کسب‌وکار، مخاطب و نقشه صفحات.</p></div>
+      <div class="pstep"><div class="n" style="background:var(--amber)">۰۲</div><h4>طراحی و پروتوتایپ</h4><p>طرح نهایی با سیستم رنگ/تایپ — قبل از کد، قابل‌دیدن.</p></div>
+      <div class="pstep"><div class="n" style="background:var(--mint)">۰۳</div><h4>توسعه و موشن</h4><p>پیاده‌سازی دقیق + لایه انیمیشن GSAP.</p></div>
+      <div class="pstep"><div class="n" style="background:var(--cyan)">۰۴</div><h4>آزمون و تحویل</h4><p>چک موبایل/دسکتاپ + پکیج آفلاین و آنلاین.</p></div>
+    </div>
   </div>
 </div></section>
 
-<!-- ===== CONTACT ===== -->
-<section id="contact" style="padding-bottom:90px"><div class="wrap">
-  <div class="contact rv">
-    <div class="stag" style="justify-content:center">Start a project</div>
-    <h2>پروژه‌ی بعدی شما، همین‌جا شروع می‌شود</h2>
-    <p class="desc rv" style="margin-inline:auto;text-align:center">یک لیست‌پیج، یک فروشگاه، یا یک تجربه‌ی حرکتی — ایده‌تان را بگویید تا در قالب دمو زنده تحویلش دهیم.</p>
-    <div class="hero-btns rv">
-      <a class="btn btn-p" href="mailto:hello@atrin.studio">ایمیل پروژه بفرستید</a>
+<!-- ===== CTA ===== -->
+<section style="padding-top:20px"><div class="wrap">
+  <div class="cta" data-anim>
+    <span class="tag v">Ready?</span>
+    <h2>بگذارید پروژه بعدی را با هم بسازیم</h2>
+    <p class="desc" style="margin-inline:auto;text-align:center">ایده‌تان را بگویید — در قالب دمو زنده تحویلش می‌گیرید.</p>
+    <div class="btns">
+      <a class="btn btn-p" href="mailto:hello@example.com">✉ ایمیل بفرستید</a>
       <a class="btn btn-g" href="tel:09120000000">☎ ۰۹۱۲-۰۰۰-۰۰۰۰</a>
     </div>
-    <div class="fine">میانگین زمان پاسخ: کمتر از ۲۴ ساعت</div>
+    <div class="fine">میانگین پاسخ: کمتر از ۲۴ ساعت</div>
   </div>
 </div></section>
 
 <footer><div class="wrap in">
-  <span>© ۱۴۰۵ آترین استودیو — نمای کارها</span>
-  <span class="mono" style="letter-spacing:.4px">designed & built in-house · GSAP-powered</span>
+  <span>© ۱۴۰۵ نمای کارها — طراحی و توسعه با ❤</span>
+  <span>GSAP-powered · 100% offline</span>
 </div></footer>
 
-<!-- modal -->
+<!-- ===== MODAL ===== -->
 <div class="modal" id="modal">
   <div class="veil" onclick="closeModal()"></div>
   <div class="frame">
@@ -364,49 +344,89 @@ footer .in{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 <script src="ScrollTrigger.min.js"></script>
 <script>
 gsap.registerPlugin(ScrollTrigger);
+gsap.defaults({ease:'power3.out'});
 
-/* reveal */
-gsap.utils.toArray('.rv').forEach(el=>{
-  gsap.from(el,{y:30,opacity:0,duration:.8,ease:'power3.out',clearProps:'all',
-    scrollTrigger:{trigger:el,start:'top 89%'}});
+/* ---- hero: reliable staged timeline (no conflict, no stuck states) ---- */
+const tl = gsap.timeline({delay:.05});
+tl.from('.eyebrow',{y:22,opacity:0,duration:.6})
+  .from('h1',{y:38,opacity:0,duration:.9},'-=.3')
+  .from('.lead',{y:24,opacity:0,duration:.65},'-=.5')
+  .from('.hero-btns',{y:20,opacity:0,duration:.6},'-=.4')
+  .from('.hero-stats .it',{y:18,opacity:0,stagger:.1,duration:.55},'-=.35')
+  /* collage: each card springs in from its own corner */
+  .from('.c1',{x:70,y:-50,opacity:0,rotate:-4,scale:.9,duration:.9},'-=1.1')
+  .from('.c2',{x:-60,y:-30,opacity:0,rotate:3,duration:.85},'-=.65')
+  .from('.c3',{x:40,y:70,opacity:0,rotate:-3,duration:.85},'-=.65')
+  .from('.c4',{scale:0,opacity:0,duration:.7,ease:'back.out(2)'},'-=.5')
+  .from('.spark',{scale:0,opacity:0,stagger:.15,duration:.5,ease:'back.out(3)'},'-=.4');
+
+/* floating postcards — endless gentle drift */
+gsap.utils.toArray('[data-float]').forEach(el=>{
+  const lvl=+el.dataset.float;
+  gsap.to(el,{y:lvl*7,x:lvl*-5,rotation:lvl===2?1.6:lvl===3?-1.6:1.2,duration:2.4+lvl*.8,yoyo:true,repeat:-1,ease:'sine.inOut'});
+});
+/* mouse parallax on collage */
+const coll=document.querySelector('.collage');
+coll.addEventListener('mousemove',e=>{
+  const r=coll.getBoundingClientRect();
+  const dx=(e.clientX-r.left)/r.width-.5, dy=(e.clientY-r.top)/r.height-.5;
+  gsap.to('.c1',{x:dx*-16,y:dy*-12,duration:.7});
+  gsap.to('.c2',{x:dx*20,y:dy*14,duration:.7});
+  gsap.to('.c3',{x:dx*-14,y:dy*16,duration:.7});
+  gsap.to('.c4',{x:dx*26,y:dy*-20,duration:.7});
+});
+coll.addEventListener('mouseleave',()=>gsap.to('.collage .pc',{x:0,y:0,duration:.9}));
+
+/* blobs breathe */
+gsap.to('.b1',{x:70,y:60,duration:10,yoyo:true,repeat:-1,ease:'sine.inOut'});
+gsap.to('.b2',{x:-80,y:40,duration:12,yoyo:true,repeat:-1,ease:'sine.inOut'});
+gsap.to('.b3',{x:60,y:-70,duration:14,yoyo:true,repeat:-1,ease:'sine.inOut'});
+
+/* hero parallax out */
+gsap.to('.hero .in',{yPercent:12,opacity:.5,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+
+/* ---- scroll reveals for the rest ---- */
+gsap.utils.toArray('[data-anim]').forEach((el,i)=>{
+  if(el.closest('.hero')||el.closest('.collage'))return;
+  gsap.from(el,{y:34,opacity:0,duration:.8,clearProps:'all',
+    scrollTrigger:{trigger:el,start:'top 90%'}});
+});
+gsap.utils.toArray('.card').forEach((c,i)=>{
+  gsap.from(c,{y:60,opacity:0,duration:.85,delay:(i%3)*.14,clearProps:'all',
+    scrollTrigger:{trigger:'.grid',start:'top 85%'}});
+  c.addEventListener('mouseenter',()=>gsap.to(c,{y:-9,duration:.35}));
+  c.addEventListener('mouseleave',()=>gsap.to(c,{y:0,duration:.35}));
+});
+gsap.utils.toArray('.strip figure').forEach((f,i)=>{
+  gsap.from(f,{y:44,opacity:0,duration:.8,delay:i*.1,clearProps:'all',
+    scrollTrigger:{trigger:'.strip',start:'top 88%'}});
 });
 
-/* hero timeline */
-gsap.timeline({delay:.05})
-  .from('.hero .chip',{y:18,opacity:0,duration:.55,ease:'power3.out'})
-  .from('h1',{y:36,opacity:0,duration:.9,ease:'power3.out'},'-=.3')
-  .from('.lead',{y:22,opacity:0,duration:.7},'-=.55')
-  .from('.hero-btns',{y:18,opacity:0,duration:.6},'-=.45')
-  .from('.win',{y:70,opacity:0,scale:.97,duration:1.1,ease:'power3.out'},'-=.35')
-  .from('.win .float',{y:20,opacity:0,duration:.6},'-=.5');
-
-/* window parallax */
-gsap.to('.win',{yPercent:14,opacity:.35,ease:'none',scrollTrigger:{trigger:'.win',start:'top top+=60',end:'bottom top',scrub:true}});
-
-/* counters */
+/* ---- counters ---- */
 document.querySelectorAll('[data-count]').forEach(el=>{
-  const t=+el.dataset.count, o={v:0};
-  ScrollTrigger.create({trigger:el,start:'top 94%',once:true,onEnter:()=>{
-    gsap.to(o,{v:t,duration:1.5,ease:'power2.out',onUpdate:()=>{
-      el.textContent = t===100? '100' : Math.round(o.v).toString().replace(/\B(?=(\d{3})+(?!\d))/g,'٬');
-    }, onComplete:()=>{ el.textContent = (t===100?'100':t.toString().replace(/\B(?=(\d{3})+(?!\d))/g,'٬')) + (t>3?'+':''); }});
+  const t=+el.dataset.count,o={v:0};
+  ScrollTrigger.create({trigger:el,start:'top 95%',once:true,onEnter:()=>{
+    gsap.to(o,{v:t,duration:1.5,ease:'power2.out',onUpdate:()=>el.textContent=Math.round(o.v),
+      onComplete:()=>el.textContent=t>3?t+'+':''+t});
   }});
 });
 
-/* work card hover glow */
-gsap.utils.toArray('.wk').forEach(c=>{
-  c.addEventListener('mouseenter',()=>gsap.to(c,{y:-6,duration:.3,ease:'power2.out'}));
-  c.addEventListener('mouseleave',()=>gsap.to(c,{y:0,duration:.3}));
-});
+/* ---- ticker ---- */
+const lane=document.getElementById('lane');
+lane.innerHTML+=lane.innerHTML;
+gsap.to(lane,{xPercent:-50,duration:24,ease:'none',repeat:-1});
 
-/* ===== modal ===== */
+/* ---- nav float-in ---- */
+gsap.from('.nav .in',{y:-70,opacity:0,duration:.9,delay:.15});
+
+/* ---- modal ---- */
 function openSite(folder,title){
   const url='sites/'+folder+'/index.html';
   document.getElementById('mTtl').textContent=title||'پیش‌نمایش';
   document.getElementById('mTab').href=url;
   document.getElementById('mFrame').src=url;
   document.getElementById('modal').classList.add('on');
-  gsap.fromTo('.modal .frame',{y:30,scale:.98,opacity:0},{y:0,scale:1,opacity:1,duration:.4,ease:'power3.out'});
+  gsap.fromTo('.modal .frame',{y:34,scale:.97,opacity:0},{y:0,scale:1,opacity:1,duration:.45});
   document.body.style.overflow='hidden';
 }
 function closeModal(){
